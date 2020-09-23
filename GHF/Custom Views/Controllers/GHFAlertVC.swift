@@ -10,16 +10,16 @@ import UIKit
 
 class GHFAlertVC: UIViewController {
 
-    let containerView   = GHFAlertContainerView()
-    let titleLabel      = GHFTitleLabel(textAlignment: .center, fontSize: 20)
-    let messageLabel    = GHFBodyLabel(textAlignment: .center)
-    let actionButton    = GHFButton(backgroundColor: .systemPink, title: "Ok")
+    private let containerView   = GHFAlertContainerView()
+    private let titleLabel      = GHFTitleLabel(textAlignment: .center, fontSize: 20)
+    private let messageLabel    = GHFBodyLabel(textAlignment: .center)
+    private let actionButton    = GHFButton(backgroundColor: .systemPink, title: "Ok")
 
-    var alertTitle: String?
-    var message: String?
-    var buttonTitle: String?
+    private var alertTitle      : String?
+    private var message         : String?
+    private var buttonTitle     : String?
 
-    let padding: CGFloat = 20
+    let padding         : CGFloat = 20
 
     init(title: String, message: String, buttonTitle: String) {
         super.init(nibName: nil, bundle: nil)
@@ -27,8 +27,6 @@ class GHFAlertVC: UIViewController {
         self.alertTitle     = title
         self.message        = message
         self.buttonTitle    = buttonTitle
-
-        setupView()
     }
 
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
@@ -48,11 +46,11 @@ class GHFAlertVC: UIViewController {
 
     private func setupSubviews() {
         // Configure title label
-        titleLabel.text                     = alertTitle ?? "Oops =("
+        titleLabel.text            = alertTitle ?? "Oops =("
 
         // Configure message label
-        messageLabel.text                   = message ?? "Unable to send a request"
-        messageLabel.numberOfLines          = 4
+        messageLabel.text          = message ?? "Unable to send a request"
+        messageLabel.numberOfLines = 4
 
         // Configure action button
         actionButton.setTitle(buttonTitle ?? "Ok", for: .normal)

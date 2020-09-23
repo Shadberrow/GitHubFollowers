@@ -6,4 +6,12 @@
 //  Copyright © 2020 Yevhenii. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+extension UIView {
+
+    func addSubviews(_ views: UIView...) {
+        views.forEach { addSubview($0) }
+    }
+
+}

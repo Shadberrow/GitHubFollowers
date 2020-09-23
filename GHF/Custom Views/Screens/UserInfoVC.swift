@@ -42,8 +42,6 @@ class UserInfoVC: UIViewController {
 
     private func setupSubviews() {
         doneBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(handleDone))
-
-
     }
 
     private func addSubviews() {
@@ -58,8 +56,8 @@ class UserInfoVC: UIViewController {
     }
 
     private func setupConstraints() {
-        let padding: CGFloat = 20
-        let itemHeight: CGFloat = 140
+        let padding     : CGFloat = 20
+        let itemHeight  : CGFloat = 140
 
         scrollView.fill(in: view)
 
@@ -86,7 +84,6 @@ class UserInfoVC: UIViewController {
         dateLabel.pin(.top, to: itemViewTwo.bottom, constant: padding)
         dateLabel.pin(.leading, to: headerView.leading)
         dateLabel.pin(.trailing, to: headerView.trailing)
-//        dateLabel.height(18)
     }
 
     @objc

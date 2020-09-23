@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 extension UIViewController {
 
@@ -17,6 +18,12 @@ extension UIViewController {
             alertVC.modalTransitionStyle = .crossDissolve
             self.present(alertVC, animated: true)
         }
+    }
+
+    func presentSafariVC(with url: URL) {
+        let vc = SFSafariViewController(url: url)
+        vc.preferredControlTintColor = .systemGreen
+        present(vc, animated: true)
     }
 
 }

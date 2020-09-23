@@ -12,8 +12,8 @@ class FollowerCell: UICollectionViewCell {
 
     private let padding: CGFloat = 8
 
-    let avatarImageView = GHFAvatarImageView(frame: .zero)
-    let userNameLabel   = GHFTitleLabel(textAlignment: .center, fontSize: 16)
+    private let avatarImageView  = GHFAvatarImageView(frame: .zero)
+    private let userNameLabel    = GHFTitleLabel(textAlignment: .center, fontSize: 16)
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,15 +23,12 @@ class FollowerCell: UICollectionViewCell {
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
     private func setupView() {
-
         setupSubviews()
         addSubviews()
         setupConstraints()
     }
 
-    private func setupSubviews() {
-
-    }
+    private func setupSubviews() {}
 
     private func addSubviews() {
         addSubview(avatarImageView)
@@ -51,7 +48,10 @@ class FollowerCell: UICollectionViewCell {
 
     func set(follower: Follower) {
         userNameLabel.text = follower.login
-        avatarImageView.downloadImage(from: follower.avatarUrl)
+        NetworkManager.shared.downloadImage(from: follower.avatarUrl) { [weak self] (image) in
+            guard let self = self else { return }
+            DispatchQueue.main.async { self.avatarImageView.image = image }
+        }
     }
 
 }

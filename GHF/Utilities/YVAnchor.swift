@@ -32,18 +32,12 @@ extension YVAnchor where Self: UIView {
         var constraint = NSLayoutConstraint()
 
         switch side {
-        case .top:
-            constraint = top.constraint(equalTo: to as! NSLayoutAnchor<NSLayoutYAxisAnchor>, constant: constant)
-        case .left:
-            constraint = left.constraint(equalTo: to as! NSLayoutAnchor<NSLayoutXAxisAnchor>, constant: constant)
-        case .leading:
-            constraint = leading.constraint(equalTo: to as! NSLayoutAnchor<NSLayoutXAxisAnchor>, constant: constant)
-        case .right:
-            constraint = right.constraint(equalTo: to as! NSLayoutAnchor<NSLayoutXAxisAnchor>, constant: -constant)
-        case .trailing:
-            constraint = trailing.constraint(equalTo: to as! NSLayoutAnchor<NSLayoutXAxisAnchor>, constant: -constant)
-        case .bottom:
-            constraint = bottom.constraint(equalTo: to as! NSLayoutAnchor<NSLayoutYAxisAnchor>, constant: -constant)
+        case .top       : constraint = top.constraint(equalTo: to as! NSLayoutAnchor<NSLayoutYAxisAnchor>, constant: constant)
+        case .left      : constraint = left.constraint(equalTo: to as! NSLayoutAnchor<NSLayoutXAxisAnchor>, constant: constant)
+        case .leading   : constraint = leading.constraint(equalTo: to as! NSLayoutAnchor<NSLayoutXAxisAnchor>, constant: constant)
+        case .right     : constraint = right.constraint(equalTo: to as! NSLayoutAnchor<NSLayoutXAxisAnchor>, constant: -constant)
+        case .trailing  : constraint = trailing.constraint(equalTo: to as! NSLayoutAnchor<NSLayoutXAxisAnchor>, constant: -constant)
+        case .bottom    : constraint = bottom.constraint(equalTo: to as! NSLayoutAnchor<NSLayoutYAxisAnchor>, constant: -constant)
         default: break
         }
 

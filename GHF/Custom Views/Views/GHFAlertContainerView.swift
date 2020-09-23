@@ -28,16 +28,10 @@ class GHFAlertContainerView: UIView {
         setupConstraints()
     }
 
-    private func setupSubviews() {
+    private func setupSubviews() {}
 
-    }
+    private func addSubviews() {}
 
-    private func addSubviews() {
-
-    }
-
-    private func setupConstraints() {
-
-    }
+    private func setupConstraints() {}
 
 }

@@ -15,19 +15,24 @@ class GHFButton: UIButton {
         setupView()
     }
 
-    init(backgroundColor: UIColor, title: String) {
-        super.init(frame: .zero)
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+
+    convenience init(backgroundColor: UIColor, title: String) {
+        self.init(frame: .zero)
+
         self.backgroundColor = backgroundColor
         self.setTitle(title, for: .normal)
-        setupView()
     }
-
-    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
     private func setupView() {
         setTitleColor(.white, for: .normal)
         layer.cornerRadius      = 10
         titleLabel?.font        = UIFont.preferredFont(forTextStyle: .headline)
+    }
+
+    func set(backgroundColor: UIColor, title: String) {
+        self.backgroundColor = backgroundColor
+        self.setTitle(title, for: .normal)
     }
 
 }

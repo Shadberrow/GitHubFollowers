@@ -10,12 +10,6 @@ import UIKit
 
 class GHFBodyLabel: UILabel {
 
-    init(textAlignment: NSTextAlignment) {
-        super.init(frame: .zero)
-        self.textAlignment = textAlignment
-        setupView()
-    }
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -23,12 +17,19 @@ class GHFBodyLabel: UILabel {
 
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
+    convenience init(textAlignment: NSTextAlignment) {
+        self.init(frame: .zero)
+        
+        self.textAlignment = textAlignment
+    }
+
     private func setupView() {
-        font                        = UIFont.preferredFont(forTextStyle: .body)
-        textColor                   = .secondaryLabel
-        adjustsFontSizeToFitWidth   = true
-        minimumScaleFactor          = 0.75
-        lineBreakMode               = .byWordWrapping
+        font                                = UIFont.preferredFont(forTextStyle: .body)
+        textColor                           = .secondaryLabel
+        adjustsFontSizeToFitWidth           = true
+        adjustsFontForContentSizeCategory   = true
+        minimumScaleFactor                  = 0.75
+        lineBreakMode                       = .byWordWrapping
     }
 
 }

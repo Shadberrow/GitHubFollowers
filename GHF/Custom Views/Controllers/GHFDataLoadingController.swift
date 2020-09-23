@@ -25,7 +25,6 @@ class GHFDataLoadingController: UIViewController {
         containerView.addSubview(activityIndicator)
 
         activityIndicator.centered(in: containerView)
-
         activityIndicator.startAnimating()
     }
 
